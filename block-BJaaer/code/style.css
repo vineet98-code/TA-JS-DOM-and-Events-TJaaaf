@@ -91,3 +91,12 @@ input[type='text'] {
 .terms {
   display: inline-block;
 }
+
+.close{
+  display: none;
+}
+
+.open{
+  display:block;
+  height: 100vh;
+}
