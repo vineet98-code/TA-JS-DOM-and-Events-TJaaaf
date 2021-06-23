@@ -1,15 +1,24 @@
-let ul = document.querySelector("boxes");
+let firstBoxes = document.querySelectorAll(".first li");
 
-function handleClick() {
+firstBoxes.forEach((box, index)=> {
+    box.addEventListener("click", (event) => {
+        event.target.innerText = index + 1;
 
-}
+        setTimeout(() => {
+          event.target.innerText = "";
+        }, 5000);
+    });
+    
+});
 
-let li = document.createElement('box');
-li.classList.add('box');
-li.backgroundColor = 'red';
 
-li.addEventListener("click", function(event) {
-  
-})
+let  secondBoxes = document.querySelector(".second");
 
-ul.append(li);
+secondBoxes.addEventListener("click", (event) => {
+    let text = event.target.dataset.text;
+    event.target.innerText = text;
+
+    setTimeout(() => {
+        event.target.innerText ="";
+    }, 5000);
+});
