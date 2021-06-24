@@ -38,17 +38,17 @@ function displayInfo( data = {} ) {
     let h1 = document.createElement("h1");
     h1.innerText = `Hello ${data.name}`;
     let email = document.createElement("h1");
-    email.innerText = `Hello ${data.email}`;
+    email.innerText = `${data.email}`;
     let choice = document.createElement("h1");
-    choice.innerText = `Hello ${data.choice}`;
+    choice.innerText = `${data.choice}`;
     let color = document.createElement("h1");
-    color.innerText = `Hello ${data.color}`;
+    color.innerText = `${data.color}`;
     let range = document.createElement("h1");
-    range.innerText = `Hello ${data.range}`;
+    range.innerText = `${data.range}`;
     let book = document.createElement("h1");
-    book.innerText = `Hello ${data.book}`;
+    book.innerText = `${data.book}`;
     let terms = document.createElement("h1");
-    terms.innerText = `Hello ${data.terms}`;
+    terms.innerText = ` ${data.terms}`;
 
     modalInfo.append(h1,email, choice, color, range, book, terms);
 }
