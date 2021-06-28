@@ -1,97 +1,89 @@
 let form = document.querySelector("form");
 
-let usernameError = "";
+let userInfo = {};
 
-let nameError = "";
+let errorMessage = {};
 
-let emailError = "";
 
-let phoneError = "";
+function displayError(name){
+    let ele = form.elements[name];
+    ele.nextElementSibling.innerText = errorMessage[name];
+    ele.parentElement.classList.add('error');
+}
 
-let passwordError = ""
+function displaySuccess(name){
+    let ele = form.elements[name];
+    ele.nextElementSibling.innerText = "";
+    errorMessage[name] = "";
+    ele.parentElement.classList.remove('error');
+    ele.parentElement.classList.add('success');
+
+}
 
 function handleSubmit(event){
    event.preventDefault();
-   console.dir(event.target);
+   let elements = event.target.elements;
 
-//    username validation
+   const username = elements.username.value;
+   const name = elements.name.value;
+   const email = elements.email.value;
+   const phone = elements.phone.value;
+   const password = elements.password.value;
+   const passwordCheck = elements["password-check"].value;
 
-   let usernameElem = event.target.elements.Username;
 
-   if(usernameElem.value === "") {
-      usernameError = "can't be empty";
-    } else if(usernameElem.value.length < 4) {
-       usernameError = "Username can't be less than 4 characters";
+   // Username can't be less than 4 characters
+   if(username.length < 4){
+    errorMessage.username = "Username can't be less than 4 characters" ;
+    displayError("username");
     } else {
-      usernameError ="";
+        displaySuccess("username");
     }
-    usernameElem.nextElementSibling.innerText = usernameError;
+    // Name can't be numbers
 
-    // Name validation 
-    let nameEle = event.target.elements.name;
-
-    if(nameEle.value === "") {
-        nameError = "can't be empty";
-      } else if(nameError.value  !== NaN) {
-        nameError = "Name can't be numbers";
-      } else {
-        nameError ="";
-      }
-      nameEle.nextElementSibling.innerText = nameError;
-  
-    // Email Validation 
-    let emailEle = event.target.elements.email;
-
-    if(emailEle.value === "") {
-        emailError = "can't be empty";
-      } else if(emailEle.value.length <= 5) {
-        emailError = "Not a valid email";
-      } else {
-        emailError ="";
-      }
-      emailEle.nextElementSibling.innerText = emailError;
-
-
-    // Phone Validation 
-    let phoneEle = event.target.elements.number;
-
-    if(phoneEle.value === "") {
-        phoneError = "can't be empty";
-      } else if(phoneEle.value === NaN) {
-        phoneError = "Phone numbers can only be a number";
-      } else if (phoneEle.value.length < 7) {
-        phoneError ="Length of phone number can't be less than 7";
-      } else {
-        phoneError ="";
-      }
-      phoneEle.nextElementSibling.innerText = phoneError;
-      
+    if(!isNaN(name)){
+        errorMessage.name = "Name can't be numbers" ;
+        displayError("name");
+        } else {
+          displaySuccess("name");
+    }
     
-    // Password and confirm password Validation 
-    let passwordEle = event.target.elements.password;
+    // Email must be at least 6 characters
+    // Email must contain the symbol `@`
+    if(!email.includes('@')) {
+        errorMessage.email = "Email must contain the symbol `@`";
+        displayError("email");
+        } else if(email.length < 6){
+        errorMessage.email = "Email must be at least 6 characters" ; 
+        displayError("email");
+        } else {   
+          displaySuccess("email");
+    }
 
-    let confirmEle = event.target.elements.confirm;
+    // Length of phone number can't be less than 7
+    // Phone numbers can only be a number
 
-    if(passwordEle.value === "") {
-        passwordEle = "can't be empty";
-      } else if(passwordEle.value === confirmEle) {
-        passwordEle = "Phone numbers can only be a number";
-      } else {
-        passwordEle = "";
-      }
-      passwordEle.nextElementSibling.innerText = passwordError;
-    
-    
-    
+    if(isNaN(phone)) {
+        errorMessage.phone = "Phone numbers can only be a number";
+        displayError("phone");
+        } else if(phone.length < 7){
+        errorMessage.phone = "Length of phone number can't be less than 7" ; 
+        displayError("phone");
+        } else {   
+          displaySuccess("phone");
+    }
+    // Length of phone number can't be less than 7
+    // Password and confirm password must be same.
+    if(password !== passwordCheck) {
+        errorMessage.phone = "Password and confirm password must be same.";
+        displayError("password");
+        displayError("password-check");
+        } else {   
+          displaySuccess("password");
+          displaySuccess("password-check");
+    }
+  // console.log({username, name, email, phone, password, passwordCheck });
 }
-
 form.addEventListener("submit", handleSubmit);
 
 
-// Username can't be less than 4 characters
-// Name can't be numbers
-// Email must contain the symbol `@`
-// Email must be at least 6 characters
-// Phone numbers can only be a number
-// Length of phone number can't be less than 7
-// Password and confirm password must be same
