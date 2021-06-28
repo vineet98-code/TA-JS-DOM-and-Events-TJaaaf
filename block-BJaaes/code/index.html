@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- fonts awesome -->
+    <script src="https://kit.fontawesome.com/c6f9fe3736.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Form Validation 👇</title>
   </head>
@@ -15,38 +18,42 @@
 
      <form>
         <div class="form-control">
-          <label for="text">Username</label> <br>
-          <input class="form-control-item" type="text" name="Username" placeholder="arya" />
+          <label for="username">Username</label> <br>
+          <input id="username" type="text" name="username" placeholder="arya" />
+          <i class ="fas fa-check-circle"></i>
+          <i class ="fas fa-exclamation-circle"></i>
           <small></small>
         </div> 
 
         <div class="form-control">
-          <label for="text">Name</label> <br>
-          <input  class ="form-control-item" type="text" name="name" placeholder="Arya Stark"/>
+          <label for="name">Name</label> <br>
+          <input  id="name" type="text" name="name" placeholder="Arya Stark"/>
+          <!-- <i class ="fas fa-check-circle"></i>
+          <i class ="fas fa-exclamation-circle"></i> -->
           <small></small>
         </div>
 
         <div class="form-control">
-          <label for="text">Email</label> <br>
-          <input class="form-control-item" id="text" type="email" name="email" placeholder="arya@Stark.com"/>
+          <label for="email">Email</label> <br>
+          <input id="email" type="text" name="email" placeholder="arya@Stark.com"/>
           <small></small>
         </div>
 
         <div class="form-control">
-          <label for="text">PhoneNumber</label> <br>
-          <input  class="form-control-item"  type="number" name="number" placeholder= 9999999999>
+          <label for="phone">Phone Number</label> <br>
+          <input   id="phone" type="tel" name="phone" placeholder= 00000000/>
           <small></small>
         </div>
 
         <div class="form-control">
-          <label for="text">Password</label> <br>
-          <input class="form-control-item" id = "text" type="text" name="password" placeholder= "password"/>
+          <label for="pass">Password</label> <br>
+          <input  id = "pass" type="password" name="password" placeholder= "password"/>
           <small></small>
         </div>
 
         <div class="form-control">
           <label for="text">Confirm Password</label> <br>
-          <input class="form-control-item" type="text" name="confirm_password" placeholder= "confirm"/>
+          <input id = "pass" type="pass-check" name="password-check" placeholder= "confirm password"/>
           <small></small>
         </div>
 
