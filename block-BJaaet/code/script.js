@@ -1,56 +1,66 @@
-let inputText = document.querySelector('#text');
-let root = document.querySelector('ul');
+let input = document.querySelector('#text');
+let root = document.querySelector('.movie-list');
 
-let allTodos = [
-    {
-        name : "kishor",
-        isDone: false,
-    },
-    {
-        name : "kishor",
-        isDone: false,
-    }
+let allMovies  = [
+    // {
+    //     name : "Forest Gump",
+    //     watched: true,
+    // },
+    // {
+    //     name : "Inception",
+    //     watched: false,
+    // }
 ];
 
 
 function handleInput(event){
-    let value = event.target.value;
-    
+    let value = event.target.value
     if (event.keyCode === 13 && value !==""){
-        let todo = {
+        let movie = {
             name: value,
             isDone: false
         };
-        allTodos.push(todo);
-        event.target.value ="";
+        allMovies.push(movie);
+        value ="";
 
-        createUI(allTodos, root);
+        createUI();
     }
-     
 }
 
-function createUI(data=allTodos, root){
+function deleteMovie(event){
+    // event.target.parentElement.remove();
+    let id = event.target.dataset.id;
+    allMovies.splice(id,1);
+    createUI();
+}
+
+function toggleMovie(event){
+    let id = event.target.id;
+    allMovies[id].watched =  !allMovies[id].watched;
+}
+
+function createUI(){
     root.innerHTML = "";
-    data.forEach((todo,index) => {
+    allMovies.forEach((movie, i) => {
 
     let li = document.createElement('li');
     
     let input = document.createElement("input");
+    input.classList.add("style-checkbox");
+    input.id = "1";
     
     input.type = "checkbox";
-    input.checked  = todo.isDone;
-    // input.addEventListener('input', handleToogle);
-    // input.setAttribute('data-id', index);
-
+    input.checked  = movie.watched;
+    input.setAttribute("data-id", i);
+    input.addEventListener("change", toggleMovie);
 
     let p = document.createElement("p");
-    p.innerText = todo.name;
+    p.innerText = movie.name;
 
     let span = document.createElement("span");
     span.innerText = "❌";
-    // span.setAttribute('data-id', index);
-
-    // span.addEventListener('click', handleDelete)
+    span.setAttribute("data-id", i);
+    span.addEventListener("click", deleteMovie);
     
     li.append(input, p, span);
     root.append(li);
@@ -58,6 +68,6 @@ function createUI(data=allTodos, root){
     });
 }
 
-createUI(allTodos, root);
+createUI();
 
-inputText.addEventListener("keyUp", handleInput);
+input.addEventListener("keyup", handleInput);

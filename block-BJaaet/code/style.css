@@ -20,19 +20,24 @@ h1{
 span{
   margin-right: 100px;
 }
-.item input{
+input{
     border : 2px solid grey;
     padding: 10px;
     font-size: 14px;
     width: 95%;
     /* margin-left: 20px; */
   }
-  
+  .style-checkbox{
+    margin-left: -102px;
+  }
   p{
     margin-right: 150px;
+    font-size: 18px;
   }
   li{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    border-bottom: 1px dashed black
   }
+  
