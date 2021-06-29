@@ -1,0 +1,38 @@
+ol,
+  ul {
+    list-style: none;
+  }
+
+
+.container{
+    max-width: 500px;
+    border: 1px solid red;
+    margin: 0 auto;
+    background-color: orange;
+}
+h1{
+    text-align: center;
+}
+.item{
+    background-color: lightskyblue;
+    margin: 30px;
+}
+span{
+  margin-right: 100px;
+}
+.item input{
+    border : 2px solid grey;
+    padding: 10px;
+    font-size: 14px;
+    width: 95%;
+    /* margin-left: 20px; */
+  }
+  
+  p{
+    margin-right: 150px;
+  }
+  li{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
