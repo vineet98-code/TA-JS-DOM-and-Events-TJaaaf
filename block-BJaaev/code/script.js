@@ -1,67 +1,121 @@
-function main(){
-let inputText = document.querySelector("#text");
-let root = document.querySelector("ul");
 
-let allTodos = JSON.parse(localStorage.getItem('todos')) || [];
+let ulRoot= document.querySelector(".todos");
+let todoInput = document.querySelector('input');
 
 
-function handleInput(event){
+let all = document.querySelector(".all");
+let active = document.querySelector(".active");
+let completed = document.querySelector(".completed");
+let clear = document.querySelector(".clear");
+
+// let defaultSelected = "all";
+
+let activeButton = "all";
+
+
+let allTodos = localStorage.getItem("todos") ?  JSON.parse(localStorage.getItem('todos')): [];
+
+function addTodo(event){
     let value = event.target.value;
 
-    if(event.keyCode === 13 && value !== "" ){
-        let todo = {
-            name : value,
+    if(event.keyCode === 13 && value !== ""){
+        allTodos.push({
+            name: value,
             isDone: false,
-        }
-        allTodos.push(todo);
+        });
         event.target.value ="";// to do it emppty in the box
-        createUI(allTodos, root);
+        createUI();
     }
     localStorage.setItem('todos', JSON.stringify(allTodos));
 }
 
+
 function handleDelete(event) {
     let id = event.target.dataset.id;
+
     allTodos.splice(id,1);
     localStorage.setItem('todos', JSON.stringify(allTodos));
-    createUI(allTodos, root);
-
+    createUI();
 }
+
 function handleToggle(event){
     let id = event.target.dataset.id;
+
     localStorage.setItem('todos', JSON.stringify(allTodos));
     allTodos[id].isDone = !allTodos[id].isDone;
-    createUI(allTodos,root);
-
-
+    createUI();
 }
 
-function createUI(data, root){
-    root.innerHTML = "";
-    allTodos.forEach((todo,index) => {
-        
-
+function createUI(data = allTodos){
+    ulRoot.innerHTML = "";
+    data.forEach((todo, i) => {
         let li = document.createElement('li');
         let input = document.createElement('input');
         input.type = "checkBox";
         input.checked  = todo.isDone;
-        input.setAttribute('data-id',index);
+        input.setAttribute('data-id',i);
         input.addEventListener('input', handleToggle);
     
         let p = document.createElement('p');
         p.innerText = todo.name;
     
         let span = document.createElement('span');
-        span.innerText  = "x";
-        span.setAttribute('data-id',index)
+        span.innerText  = "❌";
+        span.setAttribute('data-id',i)
         span.addEventListener("click", handleDelete);
 
         li.append(input, p, span);
-        root.append(li);
+        ulRoot.append(li);
     });
 }
+createUI();
 
-createUI(allTodos, root);
-inputText.addEventListener("keyup", handleInput);
+
+clear.addEventListener("click", () => {
+    allTodos = allTodos.filter((todo) => !todo.isDone);
+    createUI();
+    localStorage.setItem('todos', JSON.stringify(allTodos));
+});
+
+active.addEventListener("click", () => {
+    let notCompleted = allTodos.filter((todo) => !todo.isDone);
+    createUI(notCompleted);
+    activeButton ="active";
+    
+    updateActionButton();
+});
+
+completed.addEventListener("click", () =>{
+    let CompletedTodos = allTodos.filter((todo) => todo.isDone);
+    createUI(CompletedTodos);
+    activeButton ="completed";
+    updateActionButton();
+});
+
+all.addEventListener("click", () =>{
+    createUI();
+    activeButton ="all";
+    updateActionButton();
+});
+
+function updateActionButton(btn = activeButton){
+    all.classList.remove("selected");
+    active.classList.remove("selected");
+    completed.classList.remove("selected");
+
+    if(btn === 'all') {
+        all.classList.add("selected");
+    }
+    if(btn === 'active') {
+        active.classList.add("selected");
+    }
+    if(btn === "completed"){
+        completed.classList.add("selected");
+    }
 }
-main();
+updateActionButton();
+
+
+todoInput.addEventListener("keyup", addTodo);
+
+
