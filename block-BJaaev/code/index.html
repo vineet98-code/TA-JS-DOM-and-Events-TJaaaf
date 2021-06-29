@@ -8,22 +8,16 @@
     <title>Todo App</title>
 </head>
 <body>
-  <h1>todos</h1>
-  <section class="todoapp">
-    
-      
-      <div class="new-todo">
-        <input 
-               id="text"
-               type="text" 
-               name="todo"
-               placeholder="What need to done?"
-            />
-            <ul></ul>
-      </div>      
-
-    
-  </section>
+  <div class="container">
+    <input type="text" placeholder="Enter the todo list"/>
+    <ul class="todos"></ul>
+    <footer>
+      <button class="all">All</button>
+      <button class="active">Active</button>
+      <button class="completed">Completed</button>
+      <button class="clear">Clear Completed</button>
+    </footer>      
+  </div>
      <script src="./script.js"></script>
 </body>
 </html>
