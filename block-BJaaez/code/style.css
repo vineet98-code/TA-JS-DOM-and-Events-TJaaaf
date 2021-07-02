@@ -1,0 +1,154 @@
+
+
+
+/* CSS Reset */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ol,
+  ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  ol,
+  ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+.form-control{
+      width: 100%;
+      padding: 5px;
+      background-color: #ffffff;
+      text-transform: capitalize;
+      position: relative ;
+  }
+body{
+  background-color: pink;
+}
+  input{
+    width: 100%;
+    border : 2px solid grey;
+    text-align: left;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .flex{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  span{
+    color: red;
+    font-size: 20px;
+  }
+  hr{
+    border: -1px dashed black;
+  }
+  .items input{
+    margin: 12px -129px;
+  }
+  .items p {
+    margin-right: 40px;
+  }
+  li{
+    display: inline;
+  }
+  /* todos App */
+
+.container{
+  max-width: 370px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  background-color: #fff;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  /* position: relative; */
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
+}
+input{
+    border : 2px solid grey;
+    padding: 10px;
+    font-size: 14px;
+    width: 95%;
+    /* margin-left: 20px; */
+}
+span{
+  font-size: 36px;
+}
+span:hover{
+  visibility: visible;
+  color: #EAD7D7;
+}
+footer{
+  margin-top: 20px;
+  background-color: pink;
+  padding: 4px;
+}
+button{
+  margin-right: 6px;
+  
+}
+span{
+    font-size: 18px;
+    margin-right: 100px;
+  }
+button:hover{
+  /* background-color: #ffffff; */
+  background-color: black;
+  color: white;
+ 
+}
+
+.selected{
+  background: white !important;
+  border: 1px solid !important;
+  color: black !important;
+}
+li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    border-bottom: 1px dashed black
+
+}
+p{
+    margin-right: 100px;
+    font-size: 18px;
+    margin-left: 40px;
+    
+}
+
+  
+  
+  
+  
+  
+  
+  
