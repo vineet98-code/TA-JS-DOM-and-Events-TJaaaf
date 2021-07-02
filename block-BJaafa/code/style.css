@@ -70,7 +70,16 @@ p,h1{
     font-weight: 700;
 }
 button{
-    background-color: black;
-    color: white;
-    padding: 16px;
+       font-size: 12px;
+        padding: 8px 28px;
+        color: #ffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        box-shadow: none;
+        outline: 0;
+        border: 0;
+        display: inline-block;
+        background-color: black;
+        margin: 0 auto;
+        border-radius: 5px;
 }
