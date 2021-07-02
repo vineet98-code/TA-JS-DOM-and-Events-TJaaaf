@@ -50,79 +50,85 @@ table {
 
 .container{
     background-color: #F2F4F8;
-    max-width: 700px;
+    max-width: 650px;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     margin-top: 70px;
+    margin-bottom: 70px;
     
 }
 h1{
     font-size: 46px;
 }
-.text{
-    font-size: 12px;
-    padding: 45px 170px;
-    color: #ffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    box-shadow: none;
-    outline: 0;
-    border: 0;
-    display: inline-block;
+.display{
     background-color: black;
-    margin: 0 auto;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    margin-top: 18px;
+    color: white;
+    padding: 1.0rem;
+    font-size: 2rem;
+    text-align: right;
+    border-radius: 10px;
+    font-weight: 800;
+    margin-top: 20px;
 }
 
-.btn{
-    font-size: 24px;
-    font-weight: 1000;
-    padding: 20px 54px;
-    color: #ffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    box-shadow: none;
-    outline: 0;
-    border: 0;
-    display: inline-block;
-    background-color: #700133;
+.grid-container{
     margin: 0 auto;
-    border-radius: 12px;
-    margin-bottom: 8px;
-    margin-left: 1px;
-    /* position: fixed; */
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap:18px;
+    width: 100%;
+    margin-bottom: 30px;
+    grid-template-areas: 
+     "plus minus multiply divide"
+     "seven eight nine equal"
+     "four five six equal"
+     "one two three equal"
+     "dot zero clear equal";
 }
-.equal-btn{
-    font-size: 24px;
-    font-weight: 1000;
-    padding: 20px 54px;
-    color: #ffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    box-shadow: none;
-    outline: 0;
-    border: 0;
-    display: block;
+.operator{
+   background-color: #700133;
+   color: #ffffff;
+   border: none;
+   border-radius: 8px;
+   padding: 14px;
+   font-size: 46px;
+}
+.number {
+    background-color: #CFCFCF;
+   color: #ffffff;
+   border: none;
+   border-radius: 8px;
+   padding: 14px;
+   font-size: 38px;
+}
+.number:hover{
+    background-color: grey;
+    border: 1px solid blueviolet;
+}
+
+.clear{
+    background-color: #3D1B10;
+    color: #ffffff;
+   border: none;
+   border-radius: 8px;
+   padding: 14px;
+   font-size: 36px;
+   
+}
+.equal{
     background-color: #018080;
-    margin: 0 auto;
-    border-radius: 12px;
-    margin-bottom: 2px;
-    margin-left: 1px; 
-    /* position: relative; */
-    /* right: 0; */
-    height: 100px;
-}
-.flex{
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 22px;
+    font-size: 36px;
+    height: 210%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-ul{
-   max-width: 500px;
-   margin: 0 auto;
-}
-.wrap{
-    flex-wrap: wrap;
+    
+
 }
